@@ -1,0 +1,50 @@
+﻿@model LionsFeed.ViewModel.Posts.PostViewModel
+@{
+    ViewData["Title"] = "HomeView";
+}
+
+<h2>Welcome</h2>
+
+@await Html.PartialAsync("Create")
+
+<ul style="list-style: none;">
+    @foreach (var Post in Model.Posts)
+    {
+        <li>
+            <div class="container" style="width:60%;">
+                <div style="width:40px" class="pull-left">
+                    <a asp-controller="Manage" asp-action="Medium" asp-route-id="@Post.ID"><img src="@Post.Artist.ImageUrl" height="35" width="35" /></a>
+                </div>
+                <div class="pull-left">
+                    <div style="padding:0px; margin-bottom:0px">
+                        <a asp-controller="Manage" asp-action="Medium" asp-route-id="@Post.ID">@Post.Artist.FirstName</a>
+                    </div>
+                    <div style="font-size:x-small; color:gray">
+                        <p>
+                            <span class="glyphicon glyphicon-plus-sign"></span>
+                            @Post.CreatedDate.ToShortDateString()
+                            &nbsp;
+                            @Post.CreatedDate.ToShortTimeString()
+                        </p>
+                    </div>
+                </div>
+
+
+            </div>
+            <div class="container" style="border: 1px solid #129019;
+                    border-radius:5px; padding:20px; width:60%;
+                    background-color:#e6e0e0">
+
+                <div class="container" style="word-break: break-all">
+
+                    @Post.PostText
+                </div>
+            </div>
+            <div>
+                <br />
+            </div>
+
+        </li>
+    }
+</ul>
+

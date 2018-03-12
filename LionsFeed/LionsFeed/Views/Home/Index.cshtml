@@ -1,0 +1,83 @@
+﻿@model LionsFeed.ViewModel.Account.RegisterViewModel
+@{
+    ViewData["Title"] = "Home Page";
+}
+<br>
+
+<div class="Layout">
+    <div class="col-md-2">
+        <img src="https://hoopdirt.com/wp-content/uploads/2015/09/000000.gif" style="width:95%; float:left;" align="left" class="southeastern-logo">
+        <br><br><br><br><br><br><br><br><br><br><br><br>
+        <input type="submit" value="SELU " class="btn btn-default"><br>
+        <input type="submit" value="Moodle" class="btn btn-default"><br>
+        <input type="submit" value="Web Mail" class="btn btn-default">
+    </div>
+    <!-- for two columns in a webpage -->
+    <div class="col-md-4">
+        <h2 style="font-family: 'Century Gothic'; font-size: 35px;" onmouseover="style.color='green'" onmouseout=" style.color='black' " font-size: 40px;> Register</h2>
+
+
+        <form asp-controller="Account" asp-action="Register" method="post">
+            <div class="form-group" style="font-family: 'Century Gothic'">
+                <label asp-for="FirstName"></label>
+                <input asp-for="FirstName" class="form-control" />
+                <span asp-validation-for="FirstName" class="text-danger"></span>
+            </div>
+            <div class="form-group" style="font-family: 'Century Gothic'">
+                <label asp-for="LastName"></label>
+                <input asp-for="LastName" class="form-control" />
+                <span asp-validation-for="LastName" class="text-danger"></span>
+            </div>
+            <div class="form-group" style="font-family: 'Century Gothic'">
+                <label asp-for="WNumber"></label>
+                <input asp-for="WNumber" class="form-control" />
+                <span asp-validation-for="WNumber" class="text-danger"></span>
+            </div>
+            <div class="form-group" style="font-family: 'Century Gothic'">
+                <label asp-for="Gender"></label>
+                <select asp-for="Gender" class="form-control">
+                    <option value="Others">I'd rather not specify</option>
+                    <option value="Male">Male</option>
+                    <option value="Female">Female</option>
+                </select>
+            </div>
+            <button type="submit" class="btn btn-success">Register </button>
+        </form>
+    </div>
+
+    <br><br>
+    <div class="col-md-6" style="text-align:center">
+        <h1>Connect with friends on LionsFeed.</h1>
+        <br /><br />
+        <div style="height: 100px">
+            <div class="col-md-2" style="float:left"><span class="glyphicon glyphicon-picture" style="font-size: 5.0em"></span></div>
+            <div class="col-md-10" style="text-align:left">
+                <h2>See Photos and Updates</h2>
+            </div>
+        </div>
+        <br /><br />
+        <div>
+            <div class="col-md-2" style="float:left"><span class="glyphicon glyphicon-share" style="font-size: 5.0em"></span></div>
+            <div class="col-md-10" style="text-align:left">
+                <h2>Share Your Creativity</h2>
+            </div>
+        </div>
+    </div>
+
+</div>
+
+
+
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/tilt.js/1.2.1/tilt.jquery.min.js"></script>
+
+<script type="text/javascript">
+    $('.southeastern-logo').tilt({                                         /*Cool Tilt effect on SELU Logo*/
+        glare: true,
+        maxGlare: .5
+    })
+
+</script>
+
+@section Scripts{
+    @await Html.PartialAsync("_ValidationScriptsPartial")
+}

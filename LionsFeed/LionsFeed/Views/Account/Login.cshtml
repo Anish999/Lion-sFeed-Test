@@ -1,0 +1,36 @@
+﻿@model LionsFeed.ViewModel.Account.LogInViewModel
+@{
+    ViewData["Title"] = "Login";
+}
+
+<h2>Login</h2>
+
+<div class="Layout">
+    <div class="col-md-2">
+        <img src="https://hoopdirt.com/wp-content/uploads/2015/09/000000.gif" style="width:95%; float:left;" align="left" class="southeastern-logo">
+        <br><br><br><br><br><br><br><br><br><br><br><br>
+        <input type="submit" value="SELU " class="btn btn-default"><br>
+        <input type="submit" value="Moodle" class="btn btn-default"><br>
+        <input type="submit" value="Web Mail" class="btn btn-default">
+    </div>
+    <div class="col-md-6">
+        <form asp-action="Login">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="Email" class="control-label"></label>
+                <input asp-for="Email" class="form-control" />
+                <span asp-validation-for="Email" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Password" class="control-label"></label>
+                <input asp-for="Password" class="form-control" />
+                <span asp-validation-for="Password" class="text-danger"></span>
+            </div>
+
+            <div class="form-group">
+                <input type="submit" value="LogIn" class="btn btn-success" />
+            </div>
+        </form>
+    </div>
+</div>
+
